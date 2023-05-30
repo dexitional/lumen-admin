@@ -1,16 +1,16 @@
 import React from 'react'
-import { MdOutlineArticle } from 'react-icons/md';
-import BadgeIcon from './BadgeIcon';
+import { fetchLectures } from '@/utils/serverApi';
 import { FiEdit3, FiTrash } from 'react-icons/fi';
 
 type Props = {
-    keyword: string;
-    page: number;
+    keyword?: string;
+    page?: number;
 }
 
-function PageLecture({ keyword, page }: Props) {
+async function PageLecture({ keyword, page }: Props) {
   
-  const data:any = [];
+  const data:any = await fetchLectures();
+  console.log(data)
   return (
     <div className="pb-12 overflow-y-scroll scrollbar-hide">
         <table className="w-full border-separate border-spacing-0 border border-blue-900/30 rounded text-[0.86rem] text-blue-900/60">
