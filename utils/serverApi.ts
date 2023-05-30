@@ -17,32 +17,32 @@ export const getUser = async (username: string, password: string) => {
 
 // Nominees Queries
 export const fetchLectures = async () => {
-    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '646cd54dac351fde4212')
+    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7')
     return res;
 }
 
 export const fetchLecture = async (serial: string) => {
-    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '646cd54dac351fde4212', [
+    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7', [
         Query.equal("course", serial),
     ])
     return res;
 }
 
 export const postLecture = async (body: object) => {
-    const res = await db.createDocument(APPWRITE_DATABASE_ID!, '646cd54dac351fde4212', ID.unique(), body);
+    const res = await db.createDocument(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7', ID.unique(), body);
     return res;
 }
 
 
 export const updateLecture = async (serial: string, body: object) => {
-    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '646cd54dac351fde4212', [
+    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7', [
         Query.equal("serial", serial.toString()),
     ])
     return res;
 }
 
 export const deleteLecture = async (serial: string) => {
-    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '646cd54dac351fde4212', [
+    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7', [
         Query.equal("serial", serial.toString()),
     ])
     return res;
