@@ -15,9 +15,17 @@ export const getUser = async (username: string, password: string) => {
 }
 
 
-// Nominees Queries
-export const fetchLectures = async () => {
-    const res = await db.listDocuments(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7')
+// Lecture Queries
+export const fetchLectures = async (keyword: string , page: string) => {
+    const res = keyword 
+        ? await db.listDocuments(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7',[
+            Query.search("course", keyword)
+        ])
+        : await db.listDocuments(APPWRITE_DATABASE_ID!, '6464df0a38416f025fc7');
+        
+    //Query.search("text", "key words")
+    //const lastId = page1.documents[page1.documents.length - 1].$id;
+
     return res;
 }
 
